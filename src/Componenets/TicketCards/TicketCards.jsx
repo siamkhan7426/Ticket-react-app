@@ -1,32 +1,13 @@
 import React from 'react'
 
-// createdAt
-// : 
-// "2026-03-01"
-// customer
-// : 
-// "Siam Ahmed"
-// description
-// : 
-// "User cannot login with correct credentials"
-// id
-// : 
-// 1
-// priority
-// : 
-// "high"
-// status
-// : 
-// "open"
-// title
-// : 
-// "Login page not working"
+
 export default function TicketCards({data,handelClickCard}) {
     
     const {createdAt,customer,description, id, priority, status, title} = data
-  return (
-   <div onClick={()=> handelClickCard (data)} className="bg-white shadow p-5 rounded-md">
+      return (
 
+   <div onClick={()=> handelClickCard (data)} className="bg-white shadow p-5 rounded-md">
+       
           {/* Top Section */}
           <div className="flex justify-between items-start mb-3">
             <h3 className="text-lg font-semibold">{title}</h3>

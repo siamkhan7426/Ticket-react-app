@@ -1,13 +1,13 @@
 import React, { use } from 'react'
 import TicketCards from '../TicketCards/TicketCards';
+import TaskStatusSection from '../TaskStatusSection/TaskStatusSection';
+import { toast } from 'react-toastify/unstyled';
 
-export default function TicketCard({ticketPromise, handelClickCard}) {
+export default function TicketCard({ticketPromise, handelClickCard, progress}) {
   const ticketData = use(ticketPromise)
-  //console.log(ticketData);
-
+ toast("Wow so easy!")
+  
   return (
-
-    
     <div className="w-10/12 mx-auto mb-10">
   {/* Header */}
   <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-6 gap-3">
@@ -24,7 +24,7 @@ export default function TicketCard({ticketPromise, handelClickCard}) {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
        {
-      ticketData.map((data)=><TicketCards handelClickCard={handelClickCard} data={data}></TicketCards>)
+      ticketData.map((data)=><TicketCards key={data.id} handelClickCard={handelClickCard} data={data}></TicketCards>)
      }
         {/* Card */}
         
@@ -39,26 +39,33 @@ export default function TicketCard({ticketPromise, handelClickCard}) {
       <div className=" h-fit space-y-6">
 
         {/* Dynamic Section 1 */}
-        <div className='bg-white shadow p-5 rounded-md'>
+        { progress.length > 0 ?(
+        progress.map((taskCard)=><TaskStatusSection key={taskCard.id} taskCard={taskCard}></TaskStatusSection>) 
+        ) :(
+          <div className='bg-white shadow p-5 rounded-md'>
           <h2 className="font-semibold mb-2">
             Select a ticket to add to Task Status
           </h2>
-          <p className="text-gray-400 text-sm">
-            No task selected.
-          </p>
-          <button className="bg-green-500 hidden text-white w-full py-2 rounded-md mt-3">
-            Complete
-          </button>
+        
         </div>
+          
+        
+        )
+        }
+           
+
+         
+          
+      
+        
+       
 
         {/* Dynamic Section 2 */}
         <div className='bg-white shadow p-5 rounded-md'>
           <h2 className="font-semibold mb-2">
             Resolved Task
           </h2>
-          <p className="text-gray-400 text-sm">
-            No resolved tasks yet.
-          </p>
+          
         </div>
 
       </div>
