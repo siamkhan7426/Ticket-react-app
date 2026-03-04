@@ -11,7 +11,7 @@ export default function TicketCards({data,handelClickCard}) {
           {/* Top Section */}
           <div className="flex justify-between items-start mb-3">
             <h3 className="text-lg font-semibold">{title}</h3>
-            <button className="bg-[#B9F8CF] py-1 px-3 rounded-full flex items-center gap-2 text-sm"> <div className="bg-green-600 w-2.5 h-2.5 rounded-full"></div>{status}</button></div>
+            <button className="bg-[#B9F8CF] py-1 px-3 rounded-full whitespace-nowrap capitalize flex items-center gap-2 text-sm"> <div className="bg-green-600 w-2.5 h-2.5 rounded-full "></div>{status}</button></div>
 
           {/* Description */}
           <p className="text-gray-400 text-sm mb-4">

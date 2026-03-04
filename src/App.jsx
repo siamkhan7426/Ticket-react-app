@@ -18,7 +18,7 @@ function App() {
   const handelClickCard = (ticket)=>{
    if (!progress.find(t => t.id === ticket.id)) {
       setProgress([...progress, ticket])
-      toast.success("Wow so It will increase the count of in-progress in bannereasy!")
+      toast.success("It will increase the count of in-progress in bannereasy!")
     };
   };
     const handelCompleteBtnRemove = (task)=>{
