@@ -14,7 +14,7 @@ const ticketPromise = ticketApiCallFun()
 
 function App() {
   const [progress, setProgress] = useState([])
-  // const [resolved, setResolved] = useState([])
+   const [resolved, setResolved] = useState([])
   const handelClickCard = (ticket)=>{
    if (!progress.find(t => t.id === ticket.id)) {
       setProgress([...progress, ticket])
@@ -22,17 +22,17 @@ function App() {
     };
   };
     const handelCompleteBtnRemove = (task)=>{
-     
       (setProgress(progress.filter((id)=> id.id !== task.id)))
+      setResolved([...resolved, task])
       toast.error(" Task Complete")
   };
  
   return (
     <>
      <Navber></Navber>
-     <Banner progress={progress}></Banner>
+     <Banner resolved={resolved} progress={progress}></Banner>
      <Suspense fallback={<span className=" loading loading-spinner text-error text-center"></span>}>
-      <TicketCard handelCompleteBtnRemove = {handelCompleteBtnRemove} progress={progress} handelClickCard={handelClickCard} ticketPromise = {ticketPromise}></TicketCard>
+      <TicketCard resolved = {resolved} handelCompleteBtnRemove = {handelCompleteBtnRemove} progress={progress} handelClickCard={handelClickCard} ticketPromise = {ticketPromise}></TicketCard>
      </Suspense>
      <ToastContainer position='top-right'/>
      <Footer></Footer>
