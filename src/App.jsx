@@ -31,7 +31,10 @@ function App() {
     <>
      <Navber></Navber>
      <Banner resolved={resolved} progress={progress}></Banner>
-     <Suspense fallback={<span className=" loading loading-spinner text-error text-center"></span>}>
+     <Suspense fallback={<div className="flex justify-center items-center h-screen">
+      <span className="loading loading-spinner text-error"></span>
+    </div>
+  }>
       <TicketCard resolved = {resolved} handelCompleteBtnRemove = {handelCompleteBtnRemove} progress={progress} handelClickCard={handelClickCard} ticketPromise = {ticketPromise}></TicketCard>
      </Suspense>
      <ToastContainer position='top-right'/>

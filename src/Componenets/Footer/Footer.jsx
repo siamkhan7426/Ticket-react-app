@@ -1,6 +1,7 @@
+
 import React from 'react'
 
-export default function Footer() {
+ const Footer =() => {
   return (
 <div className='bg-neutral'>
     <footer className="footer sm:footer-horizontal  text-neutral-content p-10">
@@ -31,3 +32,4 @@ export default function Footer() {
 
   )
 }
+export default React.memo(Footer)
