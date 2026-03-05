@@ -1,4 +1,7 @@
 .btnbg{
-    background-color: #422AD5;
-    color: #FFFFFF;
-}
+        background-image: url("../../assets/vector2.png");
+        background-size: cover;
+        background-position: center;
+        background-color: #422AD5;
+        color:#FFFFFF;
+};

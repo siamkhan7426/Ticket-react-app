@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Navber/navber.css'
+import './navber.css'
 
 
 export default function Navber() {
@@ -34,7 +34,7 @@ export default function Navber() {
     </ul>
   </div>
   <div className="">
-    <a className="btn bg-[#422AD5] text-white">+ New Ticket</a>
+    <a className="btn btnbg text-white">+ New Ticket</a>
   </div>
 </div>
   );

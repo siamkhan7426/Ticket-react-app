@@ -15,6 +15,7 @@ const ticketPromise = ticketApiCallFun()
 function App() {
   const [progress, setProgress] = useState([])
    const [resolved, setResolved] = useState([])
+   
   const handelClickCard = (ticket)=>{
    if (!progress.find(t => t.id === ticket.id)) {
       setProgress([...progress, ticket])
