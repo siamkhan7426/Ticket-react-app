@@ -15,5 +15,5 @@ export default function Banner({progress, resolved}) {
     </div>
  </div>
      
-  )
-}
+  );
+};

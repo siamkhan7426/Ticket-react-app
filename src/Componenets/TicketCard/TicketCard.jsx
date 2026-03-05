@@ -3,8 +3,8 @@ import TicketCards from '../TicketCards/TicketCards';
 import TaskStatusSection from '../TaskStatusSection/TaskStatusSection';
 import { toast } from 'react-toastify/unstyled';
 
-export default function TicketCard({ ticketPromise, handelClickCard, progress, handelCompleteBtnRemove, resolved }) {
-  const ticketData = use(ticketPromise)
+export default function TicketCard({ticket, handelClickCard, progress, handelCompleteBtnRemove, resolved }) {
+  // const ticketData = use(ticketPromise)
 
   return (
     <div className="w-10/12 mx-auto mb-10">
@@ -23,7 +23,7 @@ export default function TicketCard({ ticketPromise, handelClickCard, progress, h
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {
-              ticketData.map((data) => <TicketCards key={data.id} handelClickCard={handelClickCard} data={data}></TicketCards>)
+              ticket.map((data) => <TicketCards key={data.id} handelClickCard={handelClickCard} data={data}></TicketCards>)
             }
             {/* Card */}
 
@@ -51,9 +51,9 @@ export default function TicketCard({ ticketPromise, handelClickCard, progress, h
             {/* Dynamic Section 2 */}
             {
               resolved.length > 0 ? (
-                resolved.map((resolved => <div className='bg-white shadow p-5 rounded-md'>
+                resolved.map((task => <div key={task.id} className='bg-white shadow p-5 rounded-md'>
                   <h2 className="font-semibold mb-2">
-                    {resolved.title}
+                    {task.title}
                   </h2>
                 </div>))
               ) : (
