@@ -4,19 +4,26 @@ import Navber from './Componenets/Navber/Navber'
 import Footer from './Componenets/Footer/Footer'
 import Banner from './Componenets/Banner/Banner'
 import TicketCard from './Componenets/TicketCard/TicketCard'
- import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import Loading from './Componenets/Loading/Loading'
 
 const ticketApiCallFun = async ()=>{
 const res = await fetch("/ticket.json")
  return res.json()
   
 };
+
 function App() {
   const [progress, setProgress] = useState([]);
    const [resolved, setResolved] = useState([]);
    const [ticket, setTicket] = useState([]);
+   const [loading, setLoading] = useState([true])
+
    useEffect(()=>{
-    ticketApiCallFun().then(data =>setTicket(data));
+    ticketApiCallFun().then(data =>{
+      setTicket(data);
+      setLoading(false);
+    });
    },[]);
    
   const handelClickCard = (ticket)=>{
@@ -44,7 +51,8 @@ function App() {
     <>
      <Navber></Navber>
      <Banner resolved={resolved} progress={progress}></Banner>
-      <TicketCard resolved = {resolved} handelCompleteBtnRemove = {handelCompleteBtnRemove} progress={progress} handelClickCard={handelClickCard} ticket={ticket} ></TicketCard>
+     {loading ? <Loading/>:  <TicketCard resolved = {resolved} handelCompleteBtnRemove = {handelCompleteBtnRemove} progress={progress} handelClickCard={handelClickCard} ticket={ticket} />}
+   
      <ToastContainer position='top-right'/>
      <Footer></Footer>
     </>

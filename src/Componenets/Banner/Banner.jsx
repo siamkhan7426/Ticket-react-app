@@ -1,28 +1,44 @@
-import React from 'react'
-import "./banner.css";
-import vector1 from "../../assets/vector1.png";
-export default function Banner({progress, resolved}) {
+import vector from "../../assets/vector.png";
 
+export default function Banner({ progress, resolved }) {
   return (
- <div className='w-10/12 mx-auto flex flex-col md:flex-row gap-6 mt-10'>
-    <div className="rounded-sm banner-section-first flex-1 mb-10 flex flex-col items-center justify-center ">
-        <p className='text-sm md:text-2xl'>In-Progress</p>
-        <span className='text-sm md:text-6xl font-semibold'>{progress.length}</span>
+    <div className="w-10/12 mx-auto flex flex-col md:flex-row gap-6 mt-10 mb-6">
+      
+      {/* In Progress */}
+      <div
+        className="flex-1 rounded-2xl flex flex-col items-center justify-center text-white h-[250px] relative overflow-hidden"
+        style={{
+          backgroundImage: `url(${vector})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundColor: "#422AD5",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/20"></div>
+
+        <p className="text-sm md:text-2xl z-10">In-Progress</p>
+        <span className="text-3xl md:text-6xl font-semibold z-10">
+          {progress.length}
+        </span>
+      </div>
+
+      {/* Resolved */}
+      <div
+        className="flex-1 rounded-2xl flex flex-col items-center justify-center text-white h-[250px] relative overflow-hidden"
+        style={{
+          backgroundImage: `url(${vector})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundColor: "#54CF68",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/20"></div>
+
+        <p className="text-sm md:text-2xl z-10">Resolved</p>
+        <span className="text-3xl md:text-6xl font-semibold z-10">
+          {resolved.length}
+        </span>
+      </div>
     </div>
-    
- <div className="rounded-sm  flex-1 mb-10 flex flex-col items-center justify-center" style={{
-    backgroundImage: `url(${vector1})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundColor: "#54CF68",
-    height: "250px",
-    color: "#FFFFFF"
-  }}>
-        <p className='text-sm md:text-2xl'>Resolved</p>
-        <span className=' text-sm md:text-6xl font-semibold'>{resolved.length}</span>
-    </div>
-  
- </div>
-     
   );
 };
