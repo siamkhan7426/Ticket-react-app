@@ -4,8 +4,6 @@ import TaskStatusSection from '../TaskStatusSection/TaskStatusSection';
 import { toast } from 'react-toastify/unstyled';
 
 export default function TicketCard({ticket, handelClickCard, progress, handelCompleteBtnRemove, resolved }) {
-  // const ticketData = use(ticketPromise)
-
   return (
     <div className="w-10/12 mx-auto mb-10">
       {/* Header */}
@@ -26,8 +24,6 @@ export default function TicketCard({ticket, handelClickCard, progress, handelCom
               ticket.map((data) => <TicketCards key={data.id} handelClickCard={handelClickCard} data={data}></TicketCards>)
             }
             {/* Card */}
-
-
           </div>
 
         </div>

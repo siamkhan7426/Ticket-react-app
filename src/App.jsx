@@ -10,9 +10,7 @@ const ticketApiCallFun = async ()=>{
 const res = await fetch("/ticket.json")
  return res.json()
   
-}
-// const ticketPromise = ticketApiCallFun()
-
+};
 function App() {
   const [progress, setProgress] = useState([]);
    const [resolved, setResolved] = useState([]);
@@ -42,7 +40,6 @@ function App() {
        };
   };
 
- 
   return (
     <>
      <Navber></Navber>
