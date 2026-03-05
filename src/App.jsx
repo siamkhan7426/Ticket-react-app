@@ -30,10 +30,16 @@ function App() {
   };
 
     const handelCompleteBtnRemove = (task)=>{
-      setProgress(prev=> prev.filter((t)=> t.id !==task.id));
-      setResolved((prev) => [...prev, task]);
-      setTicket(current=>current.filter(t=>t.id !==task.id));
+      const updateProgress = progress.filter(t => t.id !== task.id);
+      const upadateResolve = [...resolved, task] ;
+      const updateTicket = ticket.filter((t)=>t.id !==task.id);
+      setProgress(updateProgress);
+      setResolved(upadateResolve);
+      setTicket(updateTicket);
        toast.error(`${task.title} Complete...!`)
+       if(updateProgress.length===0 && updateTicket.length ===0){
+        toast.info("All tasks completed! 🎉");
+       };
   };
 
  
@@ -41,10 +47,7 @@ function App() {
     <>
      <Navber></Navber>
      <Banner resolved={resolved} progress={progress}></Banner>
-     <Suspense fallback={<div className="flex justify-center items-center h-screen">
-      <span className="loading loading-spinner text-error"></span>
-    </div>
-    }>
+     <Suspense>
       <TicketCard resolved = {resolved} handelCompleteBtnRemove = {handelCompleteBtnRemove} progress={progress} handelClickCard={handelClickCard} ticket={ticket} ></TicketCard>
      </Suspense>
      <ToastContainer position='top-right'/>

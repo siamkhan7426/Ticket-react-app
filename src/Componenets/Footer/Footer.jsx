@@ -3,7 +3,7 @@ import React from 'react'
 
  const Footer =() => {
   return (
-<div className='bg-neutral'>
+  <div className='bg-neutral'>
     <footer className="footer sm:footer-horizontal  text-neutral-content p-10">
   <nav>
     <h6 className=" font-bold text-white">CS — Ticket System</h6>

@@ -1,11 +1,10 @@
 import React from 'react'
-import vector1 from "../../assets/vector1.png";
 import "./banner.css";
 
 export default function Banner({progress, resolved}) {
   return (
  <div className='w-10/12 mx-auto flex flex-col md:flex-row gap-6 mt-10'>
-    <div className="rounded-sm banner-section-first flex-1 flex flex-col items-center justify-center ">
+    <div className="rounded-sm banner-section-first flex-1 mb-10 flex flex-col items-center justify-center ">
         <p className='text-sm md:text-2xl'>In-Progress</p>
         <span className='text-sm md:text-6xl font-semibold'>{progress.length}</span>
     </div>
