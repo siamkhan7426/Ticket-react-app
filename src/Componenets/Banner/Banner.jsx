@@ -1,5 +1,4 @@
 import vector from "../../assets/vector.png";
-
 export default function Banner({ progress, resolved }) {
   return (
     <div className="w-10/12 mx-auto flex flex-col md:flex-row gap-6 mt-10 mb-6">
