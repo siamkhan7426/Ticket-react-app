@@ -44,9 +44,7 @@ function App() {
     <>
      <Navber></Navber>
      <Banner resolved={resolved} progress={progress}></Banner>
-     <Suspense>
       <TicketCard resolved = {resolved} handelCompleteBtnRemove = {handelCompleteBtnRemove} progress={progress} handelClickCard={handelClickCard} ticket={ticket} ></TicketCard>
-     </Suspense>
      <ToastContainer position='top-right'/>
      <Footer></Footer>
     </>

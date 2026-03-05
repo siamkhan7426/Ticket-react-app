@@ -30,6 +30,7 @@ import React from 'react'
 </div>
 </div>
 
-  )
-}
-export default React.memo(Footer)
+  );
+};
+
+export default React.memo(Footer);
